@@ -62,7 +62,7 @@ void loop(void)
   
 
 //Default Animation Loop
-
+  button_testing(keypress);
  if (animations.IsAnimating())
     {
         // the normal loop just needs these two to run the active animations
@@ -80,3 +80,78 @@ void loop(void)
 
 }
 
+void button_testing(char keypress)
+{
+  switch (keypress)
+  {
+    case '0':
+    //case '1':
+    //case '2':
+    case '3':
+    case '4':
+    case '5':
+    case '6':
+    case '7':
+    case '8':
+    case '9':
+    case 'A':
+    case 'B':
+    case 'C':
+    //case 'D':
+    case '#':
+    case '*':
+    {
+      oled->clearDisplay();
+      oled->setTextSize(4);
+      oled->setCursor(0, 0);
+      oled->println(keypress);
+      oled->display();
+      delay(200);
+      display_menu();
+      break;
+    }
+    case 'D':
+    {
+      oled->clearDisplay();
+      oled->setTextSize(1);
+      oled->setCursor(0, 0);
+      oled->println("DCZIA presents");
+      oled->println("DEFCON 26");
+      oled->println("[a2m] presents");
+      oled->println("Quakecon 2018");
+      oled->display();
+      break;
+    }
+    case '1':
+    {
+      oled->clearDisplay();
+      oled->setTextSize(2);
+      oled->setCursor(0, 0);
+      oled->println("  DCZIA  ");
+      oled->println(" Ancients");
+      oled->display();
+      break;
+    }
+    case '2':
+    {
+      oled->clearDisplay();
+      oled->setTextSize(2);
+      oled->setCursor(0, 0);
+      oled->println("  [a2m]  ");
+      oled->println(" Ancients");
+      oled->display();
+      break;
+    }
+  }
+}
+
+void display_menu()
+{
+  oled->clearDisplay();
+  oled->setCursor(0, 0);
+  oled->setTextSize(2);
+  oled->println(" -DCZia26-");
+  oled->setTextSize(1);
+  oled->println("     main_menu()");
+  oled->display();
+}
